@@ -19,6 +19,7 @@ body{
 
 .image-container{
     display: flex;
+    transition: transform .4s ease-in-out;
 }
 
 .btn{
