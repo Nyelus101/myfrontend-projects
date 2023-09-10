@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const convertButton = document.getElementById('convertButton');
     const dollarAmountInput = document.getElementById('dollarAmount');
     const resultElement = document.getElementById('result');
-    const YOUR_API_KEY = '1f84f5560e25a241dfd2171fc317516f';
-    const apiUrl = 'http://api.exchangeratesapi.io/v1/latest';
+    const YOUR_API_KEY = '9ae3b250ae992c9fffbbc12a';
+    const apiUrl = 'https://v6.exchangerate-api.com/v6/9ae3b250ae992c9fffbbc12a/latest/USD';
 
     convertButton.addEventListener('click', async () => {
         const dollarAmount = parseFloat(dollarAmountInput.value);
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
         try {
             const response = await fetch(`${apiUrl}?base=USD&apikey=${YOUR_API_KEY}`);
             const data = await response.json();
-            const exchangeRate = data.rates.NGN; // Exchange rate for USD to NGN
+            const exchangeRate = data.conversion_rates.NGN; // Exchange rate for USD to NGN
             const nairaAmount = dollarAmount * exchangeRate;
             resultElement.textContent = `${dollarAmount.toFixed(2)} dollars is approximately ${nairaAmount.toFixed(2)} naira.`;
             console.log(data);
@@ -24,8 +24,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-
-
 
 
 
